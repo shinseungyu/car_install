@@ -3,16 +3,6 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import { Car, Calendar, Tag, ChevronLeft } from 'lucide-react'
 
-export const metadata: Metadata = {
-  title: '자동차 구매·유지 팁 게시판',
-  description: '자동차 할부 금융 꿀팁, 전기차 vs 하이브리드 유지비 비교, 연봉별 추천 차량 등 자동차 구매자를 위한 필수 정보.',
-  alternates: { canonical: '/board' },
-  openGraph: {
-    title: '자동차 구매·유지 팁 게시판 | 자동차 할부 계산기',
-    description: '자동차 할부 금융 꿀팁, 전기차 vs 하이브리드 유지비 비교, 연봉별 추천 차량 등 자동차 구매자를 위한 필수 정보.',
-  },
-}
-
 interface Post {
   id: number
   title: string
@@ -27,13 +17,23 @@ interface Props {
   searchParams: Promise<{ id?: string }>
 }
 
+const defaultMetadata: Metadata = {
+  title: '자동차 구매·유지 팁 게시판',
+  description: '자동차 할부 금융 꿀팁, 전기차 vs 하이브리드 유지비 비교, 연봉별 추천 차량 등 자동차 구매자를 위한 필수 정보.',
+  alternates: { canonical: '/board' },
+  openGraph: {
+    title: '자동차 구매·유지 팁 게시판 | 자동차 할부 계산기',
+    description: '자동차 할부 금융 꿀팁, 전기차 vs 하이브리드 유지비 비교, 연봉별 추천 차량 등 자동차 구매자를 위한 필수 정보.',
+  },
+}
+
 export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
   const { id } = await searchParams
-  if (!id) return metadata
+  if (!id) return defaultMetadata
 
   const allPosts: Post[] = posts as Post[]
   const post = allPosts.find((p) => p.id === Number(id))
-  if (!post) return metadata
+  if (!post) return defaultMetadata
 
   return {
     title: post.title,
