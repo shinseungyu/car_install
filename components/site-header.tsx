@@ -6,6 +6,7 @@ import { useState } from "react"
 
 const navLinks = [
   { href: "/", label: "자동차 할부 계산기" },
+  { href: "/car-maintenance-cost", label: "자동차 유지비 계산" },
   { href: "/used-car-interest", label: "중고차 할부 이자" },
   { href: "/registration-tax", label: "취등록세/이전비" },
 ]
