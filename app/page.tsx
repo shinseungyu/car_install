@@ -108,6 +108,14 @@ export default function Home() {
               </ul>
             </div>
 
+            {/* EV Subsidy Callout */}
+            <div className="rounded-2xl border border-emerald-200 bg-emerald-50 px-6 py-5">
+              <p className="text-xs font-bold uppercase tracking-widest text-emerald-600 mb-2">전기차 구매를 고려 중이라면</p>
+              <h2 className="text-lg font-bold text-foreground mb-2">보조금 먼저 확인하고 할부 계획 세우세요</h2>
+              <p className="text-sm text-muted-foreground mb-3">전기차는 국고보조금(최대 650만 원)과 지자체 보조금을 합산하면 실구매가가 크게 낮아집니다. 할부 원금 자체가 줄어드니 이자 절감 효과도 덤으로 따라옵니다. <a href="https://carelec.kr" target="_blank" rel="noopener noreferrer" className="font-bold text-emerald-600 underline underline-offset-2 hover:text-emerald-700">전기차 보조금 계산기(carelec.kr)</a>에서 차종별·지역별 보조금을 미리 조회한 뒤 할부 계획을 세워보세요.</p>
+              <a href="https://carelec.kr" target="_blank" rel="noopener noreferrer" className="inline-block rounded-xl bg-emerald-600 text-white text-sm font-bold px-4 py-2 hover:bg-emerald-700 transition-colors">2026 전기차 보조금 조회 →</a>
+            </div>
+
             {/* Section 5 */}
             <div>
               <p className="text-xs font-bold uppercase tracking-widest text-primary mb-3">자주 묻는 질문</p>
