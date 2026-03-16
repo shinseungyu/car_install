@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     default: '자동차 할부 계산기 | 월 납입금·중고차 이자·취등록세 무료 계산',
     template: '%s | CarPayPro 자동차 할부 계산기',
   },
-  description: '자동차 할부 월 납입금, 중고차 이자, 취등록세까지 한번에 무료 계산. 내 연봉에 맞는 차가 뭔지 3초 만에 확인하세요.',
+  description: '60개월·72개월 신차·중고차 할부 월 납입금과 이자를 1초 만에 계산하세요. 취등록세, 연봉별 적정 차량까지 무료로 한번에 확인.',
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://carpaypro.com'),
   alternates: {
     canonical: '/',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: '자동차 할부 계산기 | 월 납입금·중고차 이자·취등록세 무료 계산',
-    description: '자동차 할부 월 납입금, 중고차 이자, 취등록세까지 한번에 무료 계산. 내 연봉에 맞는 차가 뭔지 3초 만에 확인하세요.',
+    description: '60개월·72개월 신차·중고차 할부 월 납입금과 이자를 1초 만에 계산하세요. 취등록세, 연봉별 적정 차량까지 무료로 한번에 확인.',
     url: '/',
     type: 'website',
     locale: 'ko_KR',
@@ -93,7 +93,7 @@ export default function RootLayout({
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
     name: '자동차 할부 계산기 | 월 납입금·중고차 이자·취등록세 무료 계산',
-    description: '자동차 할부 월 납입금, 중고차 이자, 취등록세까지 한번에 무료 계산. 내 연봉에 맞는 차가 뭔지 3초 만에 확인하세요.',
+    description: '60개월·72개월 신차·중고차 할부 월 납입금과 이자를 1초 만에 계산하세요. 취등록세, 연봉별 적정 차량까지 무료로 한번에 확인.',
     applicationCategory: 'FinanceApplication',
     operatingSystem: 'All',
     url: siteUrl,
