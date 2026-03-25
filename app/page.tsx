@@ -28,6 +28,21 @@ const faqJsonLd = {
       name: '보험료는 어떻게 계산에 반영되나요?',
       acceptedAnswer: { '@type': 'Answer', text: '연령과 차량 유형을 입력하면 업계 평균 보험료를 추정해 월 유지비에 자동으로 반영됩니다. 실제 보험료는 운전 경력, 사고 이력에 따라 다를 수 있으므로 참고용으로 활용하세요.' },
     },
+    {
+      '@type': 'Question',
+      name: '자동차 할부 계산기는 어떻게 사용하나요?',
+      acceptedAnswer: { '@type': 'Answer', text: '①차량 가격·선수금 입력 → ②할부 기간·금리 선택 → ③연봉 입력 순서로 진행하면 월 납입금, 총 이자, 월 유지비, 적정성 진단까지 자동으로 계산됩니다. 모든 기능은 무료로 이용할 수 있습니다.' },
+    },
+    {
+      '@type': 'Question',
+      name: '60개월과 72개월 할부 중 어느 것이 유리한가요?',
+      acceptedAnswer: { '@type': 'Answer', text: '월 납입금 부담은 72개월이 낮지만, 총 이자는 크게 늘어납니다. 예를 들어 2,000만 원을 연 6%로 빌릴 경우, 60개월이면 총 이자 약 320만 원, 72개월은 약 387만 원으로 67만 원 차이가 납니다. 신차라면 48~60개월, 중고차라면 36~48개월을 권장합니다.' },
+    },
+    {
+      '@type': 'Question',
+      name: '자동차 할부 중도상환 수수료는 얼마인가요?',
+      acceptedAnswer: { '@type': 'Answer', text: '캐피탈사 기준 중도상환 수수료는 잔여 원금의 1~2% 수준입니다. 단, 은행 자동차 대출은 수수료가 없거나 0.5% 이하로 낮은 경우가 많습니다. 중도 상환을 고려한다면 처음부터 은행 대출을 선택하는 것이 유리합니다.' },
+    },
   ],
 }
 
@@ -101,11 +116,41 @@ export default function Home() {
               <p className="text-xs font-bold uppercase tracking-widest text-primary mb-3">할부 기간 전략</p>
               <h2 className="text-2xl font-bold text-foreground mb-4">할부 기간, 길수록 유리할까요?</h2>
               <p className="mb-4">월 납입금 부담은 줄어들지만 총 이자 비용은 반대로 증가합니다. 예를 들어 2,000만 원을 연 8%로 빌릴 경우, 36개월은 총 이자 약 258만 원이지만 72개월이면 약 523만 원으로 <strong className="text-foreground">265만 원 이상 더 냅니다.</strong></p>
-              <ul className="space-y-2 pl-1">
+              <ul className="space-y-2 pl-1 mb-6">
                 <li className="flex gap-2"><span className="text-primary font-bold mt-0.5">→</span><span><strong className="text-foreground">신차:</strong> 48~60개월이 감가상각 속도와 균형이 맞는 구간입니다.</span></li>
                 <li className="flex gap-2"><span className="text-primary font-bold mt-0.5">→</span><span><strong className="text-foreground">중고차:</strong> 36~48개월을 권장합니다. 잔존가치 대비 잔여 대출이 역전되는 '깡통 상태'를 예방하세요.</span></li>
                 <li className="flex gap-2"><span className="text-primary font-bold mt-0.5">→</span><span><strong className="text-foreground">72개월 이상 장기 할부:</strong> 월 부담은 낮지만 총비용이 크게 늘고 중도 매각 시 손해가 발생할 수 있습니다.</span></li>
               </ul>
+
+              {/* 비교표: 2,000만원 연 7% */}
+              <p className="text-sm font-semibold text-foreground mb-2">📊 할부 기간별 실제 납입금 비교 (차량가 2,000만 원 · 금리 연 7%)</p>
+              <div className="overflow-x-auto rounded-xl border border-gray-200">
+                <table className="w-full text-sm">
+                  <thead className="bg-gray-50 text-gray-500 text-xs">
+                    <tr>
+                      <th className="text-left px-4 py-2.5 font-semibold">할부 기간</th>
+                      <th className="px-3 py-2.5 font-semibold text-center">월 납입금</th>
+                      <th className="px-3 py-2.5 font-semibold text-center">총 이자</th>
+                      <th className="px-3 py-2.5 font-semibold text-center">총 납입금</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-gray-100 bg-white">
+                    {[
+                      { period: '36개월', monthly: '617,000원', interest: '221,000원', total: '22,221,000원' },
+                      { period: '48개월', monthly: '479,000원', interest: '298,000원', total: '22,998,000원' },
+                      { period: '60개월 (추천)', monthly: '396,000원', interest: '374,000원', total: '23,740,000원', highlight: true },
+                      { period: '72개월', monthly: '340,000원', interest: '452,000원', total: '24,524,000원' },
+                    ].map((row) => (
+                      <tr key={row.period} className={row.highlight ? 'bg-primary/5' : 'hover:bg-gray-50'}>
+                        <td className={`px-4 py-2.5 font-medium ${row.highlight ? 'text-primary' : 'text-gray-700'}`}>{row.period}</td>
+                        <td className="px-3 py-2.5 text-center text-gray-700">{row.monthly}</td>
+                        <td className="px-3 py-2.5 text-center text-gray-500">{row.interest}</td>
+                        <td className="px-3 py-2.5 text-center text-gray-500">{row.total}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
 
             {/* EV Subsidy Callout */}
@@ -132,6 +177,14 @@ export default function Home() {
                 <div>
                   <p className="font-semibold text-foreground">Q. 보험료는 어떻게 계산에 반영되나요?</p>
                   <p className="mt-1">A. STEP 3에서 연령과 차량 유형을 입력하면 업계 평균 보험료를 추정해 월 유지비에 자동으로 반영됩니다. 실제 보험료는 운전 경력, 사고 이력에 따라 다를 수 있으므로 참고용으로 활용하세요.</p>
+                </div>
+                <div>
+                  <p className="font-semibold text-foreground">Q. 자동차 할부 계산기는 어떻게 사용하나요?</p>
+                  <p className="mt-1">A. ① 차량 가격·선수금 입력 → ② 할부 기간·금리 선택 → ③ 연봉 입력 순서로 진행하면 월 납입금, 총 이자, 월 유지비, 적정성 진단까지 자동으로 계산됩니다. 모든 기능은 무료로 이용할 수 있습니다.</p>
+                </div>
+                <div>
+                  <p className="font-semibold text-foreground">Q. 자동차 할부 중도상환 수수료는 얼마인가요?</p>
+                  <p className="mt-1">A. 캐피탈사 기준 중도상환 수수료는 잔여 원금의 1~2% 수준입니다. 단, 은행 자동차 대출은 수수료가 없거나 0.5% 이하로 낮은 경우가 많습니다. 중도 상환을 고려한다면 처음부터 은행 대출을 선택하는 것이 유리합니다.</p>
                 </div>
               </div>
             </div>

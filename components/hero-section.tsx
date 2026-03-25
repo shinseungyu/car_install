@@ -10,9 +10,9 @@ export function HeroSection() {
 
       {/* Headline */}
       <h1 className="text-[clamp(38px,7.5vw,68px)] font-black leading-[1.06] tracking-tight text-foreground mb-5">
-        자동차 할부
+        자동차 할부 계산기
         <br />
-        <span className="text-primary">월 납입금 계산기</span>
+        <span className="text-primary">월 납입금 무료 계산</span>
       </h1>
 
       {/* Subtitle */}
