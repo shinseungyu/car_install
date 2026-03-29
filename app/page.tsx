@@ -186,6 +186,10 @@ export default function Home() {
                   <p className="font-semibold text-foreground">Q. 자동차 할부 중도상환 수수료는 얼마인가요?</p>
                   <p className="mt-1">A. 캐피탈사 기준 중도상환 수수료는 잔여 원금의 1~2% 수준입니다. 단, 은행 자동차 대출은 수수료가 없거나 0.5% 이하로 낮은 경우가 많습니다. 중도 상환을 고려한다면 처음부터 은행 대출을 선택하는 것이 유리합니다.</p>
                 </div>
+                <div>
+                  <p className="font-semibold text-foreground">Q. 2026년 자동차 할부 평균 금리는 얼마인가요?</p>
+                  <p className="mt-1">A. 2026년 3월 기준 신차 캐피탈 할부 평균 금리는 연 4~7%, 1금융권 자동차 대출은 연 4~6% 수준입니다. 중고차는 연 8~14%로 신차 대비 높습니다. 금리는 신용점수·차종·금융사에 따라 크게 달라지므로 위 계산기에 직접 입력해 비교해 보세요.</p>
+                </div>
               </div>
             </div>
 
